@@ -6,7 +6,7 @@ export function _wrapSpy(func?: Function) {
 }
 
 /**
- * Get a mock for express NextFunction
+ * Get a mock for opine NextFunction
  * @returns mock for express next
  */
 export function mockNextFunction(func: Function): NextFunction {
