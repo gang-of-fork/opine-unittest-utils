@@ -73,6 +73,7 @@ Deno.test("test mockNextFunction()", () => {
 Deno.test("test mockResponse()", () => {
   const mockRes = mockResponse({})
   assertEquals(typeof mockRes.locals, "object")
+  assertEquals(typeof mockRes.status, "number")
 })
 
 
