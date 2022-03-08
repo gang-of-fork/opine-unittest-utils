@@ -80,11 +80,12 @@ Deno.test("test mockResponse()", () => {
 Deno.test("test mockResponse() with additional props", () => {
   const mockRes = mockResponse({
     //ADD METHODS
-    locals: {"test":"testLocal"}
+    locals: {"test":"testLocal"},
+    status: 200
   })
   assertEquals(typeof mockRes.locals, "object")
   assertEquals(typeof mockRes.status, "function")
   assertEquals(mockRes.locals.test, "testLocal")
-  
+  assertEquals(mockRes.status, 200)
 
 })
