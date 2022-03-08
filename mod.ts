@@ -1,4 +1,8 @@
-import { NextFunction, OpineRequest as Request, OpineResponse as Response } from "./deps.ts";
+import {
+  NextFunction,
+  OpineRequest as Request,
+  OpineResponse as Response,
+} from "./deps.ts";
 import { spy } from "./deps.ts";
 
 export function _wrapSpy(func?: Function) {
@@ -45,7 +49,7 @@ export function mockRequest(additional: Partial<Request>): Request {
     stale: true,
     subdomains: [],
     xhr: true,
-    headers:  additional.headers? additional.headers: new Headers({})
+    headers: additional.headers ? additional.headers : new Headers({}),
   };
 
   const methods: (keyof Request)[] = [
@@ -56,7 +60,7 @@ export function mockRequest(additional: Partial<Request>): Request {
     "get",
     "is",
     "param",
-    "range"
+    "range",
   ];
 
   //set properties
