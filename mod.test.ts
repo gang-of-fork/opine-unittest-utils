@@ -1,9 +1,6 @@
 import { assertEquals, assert } from "./test_deps.ts";
 import {_wrapSpy, mockNextFunction, mockRequest, mockResponse} from "./mod.ts"
 
-Deno.test("assert true", () => {
-  assertEquals(true, true);
-});
 
 
 Deno.test("test mockRequest()", () => {
