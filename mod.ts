@@ -87,6 +87,7 @@ export function mockResponse(additional?: Partial<Response>): Response {
   const props: Partial<Response> = {
     //app: {},
     //headersSent: true,
+    status: 200,
     locals: {},
   };
 
@@ -109,9 +110,9 @@ export function mockResponse(additional?: Partial<Response>): Response {
     "sendFile",
     "sendStatus",
     "set",
-    "status",
     "type",
     "vary",
+    "setStatus"
   ];
 
   //set properties
