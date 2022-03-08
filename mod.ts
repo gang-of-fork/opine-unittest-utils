@@ -24,7 +24,7 @@ export function mockNextFunction(func: Function): NextFunction {
  * @param additional any properties that should be set explicitly
  * @returns a mock for opine Requests
  */
-export function mockRequest(additional: Partial<Request>): Request {
+export function mockRequest(additional?: Partial<Request>): Request {
   //define properties and methods according to docs - http://expressjs.com/en/4x/api.html#req
   const props: Partial<Request> = {
     //app: {},
@@ -49,7 +49,7 @@ export function mockRequest(additional: Partial<Request>): Request {
     stale: true,
     subdomains: [],
     xhr: true,
-    headers: additional.headers ? additional.headers : new Headers({}),
+    headers: additional?.headers ? additional.headers : new Headers({}),
   };
 
   const methods: (keyof Request)[] = [
@@ -71,7 +71,7 @@ export function mockRequest(additional: Partial<Request>): Request {
 
   //set methods
   methods.forEach((method) => {
-    req[method] = _wrapSpy(additional[method]);
+    req[method] = additional? _wrapSpy(additional[method]): _wrapSpy();
   });
 
   return req as Request;
@@ -82,7 +82,7 @@ export function mockRequest(additional: Partial<Request>): Request {
  * @param additional any properties that should be set explicitly
  * @returns a mock for opine Response
  */
-export function mockResponse(additional: Partial<Response>): Response {
+export function mockResponse(additional?: Partial<Response>): Response {
   //define properties and methods according to docs - http://expressjs.com/en/4x/api.html#res
   const props: Partial<Response> = {
     //app: {},
@@ -122,7 +122,7 @@ export function mockResponse(additional: Partial<Response>): Response {
 
   //set methods
   methods.forEach((method) => {
-    res[method] = _wrapSpy(additional[method]);
+    res[method] = additional? _wrapSpy(additional[method]): _wrapSpy();
   });
 
   return res as Response;
