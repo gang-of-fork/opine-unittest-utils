@@ -2,7 +2,7 @@
 
 [Deno](https://deno.land) module provides simple mock objects for requests and responses to facilitate unit testing for [Opine](https://deno.land/x/opine).
 
-Compared to the Deno module [SuperDeno]https://deno.land/x/superdeno, here the handler can be tested independently from the Opine App instance by calling them directly with mocked request and response objects.
+Compared to the Deno module [SuperDeno](https://deno.land/x/superdeno), here the handler can be tested independently from the Opine App instance by calling them directly with mocked request and response objects.
 
 ## Getting Started 
 
