@@ -46,4 +46,4 @@ import { opine-unittest-utils } from "https://deno.land/x/opine_unittest_utils/m
 
 ## Reference
 
-This Deno module is similar to the [sinon-express-mock]https://www.npmjs.com/package/sinon-express-mock module for express.
+This Deno module is similar to the [sinon-express-mock](https://www.npmjs.com/package/sinon-express-mock) module for express.
