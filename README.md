@@ -1,5 +1,9 @@
 # 🦕 opine-unittest-utils
 
+[![tag](https://img.shields.io/github/tag/STAT1C-Sy/opine-unittest-utils.svg)](https://github.com/STAT1C-Sy/opine-unittest-utils/releases)
+[![CI](https://github.com/STAT1C-Sy/opine-unittest-utils/actions/workflows/deno.yml/badge.svg)](https://github.com/lumaghg/opine-unittest-utils/actions/workflows/deno.yml)
+
+
 [Deno](https://deno.land) module provides simple mock objects for requests and responses to facilitate unit testing for [Opine](https://deno.land/x/opine).
 
 Compared to the Deno module [SuperDeno](https://deno.land/x/superdeno), here the handler can be tested independently from the Opine App instance by calling them directly with mocked request and response objects.
