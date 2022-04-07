@@ -3,22 +3,27 @@ import { assertSpyCall, Spy } from "../deps.ts";
 import { mockRequest, mockResponse } from "../mod.ts";
 
 function opineRequestHandler(req: OpineRequest, res: OpineResponse) {
-    if(req.headers.get("apiKey") == "myKey") {
-        res.send("valid");
-    } else {
-        res.send("invalid");
-    }
+    res.setStatus(401).send("Not allowed")
 }
 
 Deno.test("Simple test with headers", () => {
+    
+
   const request = mockRequest({
       headers: new Headers({
           'apiKey': 'myKey'
-      })
+      }),
   });
-  const response = mockResponse();
+
+  //need to create a second mock to allow chaining
+  const sendMock = mockResponse();
+
+  const response = mockResponse({
+      setStatus: () => sendMock 
+  });
 
   opineRequestHandler(request, response);
 
-  assertSpyCall(response.send as Spy<any>, 0, { args: ["valid"] });
+  assertSpyCall(response.setStatus as Spy<any>, 0, { args: [401] });
+  assertSpyCall(sendMock.send as Spy<any>, 0, { args: ["Not allowed"] });
 });
